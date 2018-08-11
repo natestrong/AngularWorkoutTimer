@@ -1,15 +1,49 @@
-<section>
-  <form>
+<section class="signup-form">
+  <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" fxLayoutGap="10px" (ngSubmit)="onSubmit(f)">
     <mat-form-field>
-      <input type="email" matInput placeholder="Your email">
+      <input
+        type="email"
+        matInput
+        placeholder="Email"
+        ngModel name="email"
+        email
+        required
+        #emailInput="ngModel">
+      <mat-error *ngIf="emailInput.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">Email is invalid</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input type="password" matInput placeholder="Your password">
+      <input
+        type="password"
+        matInput
+        placeholder="Password"
+        ngModel
+        name="password"
+        required
+        minlength="6"
+        #pwInput="ngModel">
+      <mat-hint *ngIf="pwInput.value?.length <= 5">{{ pwInput.value?.length }} / 6</mat-hint>
+      <mat-hint
+        align="end"
+        *ngIf="pwInput.value?.length <= 5">Must be at least 6 characters
+      </mat-hint>
+      <mat-error>{{ pwInput.value?.length }} / 6</mat-error>
     </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Birthdate"
+             [matDatepicker]="picker"
+             [max]="maxDate"
+             ngModel
+             name="birthdate"
+             required>
+      <mat-datepicker-toggle
+        matSuffix=""
+        [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-checkbox ngModel
+                  name="agree"
+                  required>Agree to Terms and Conditions</mat-checkbox>
+    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
   </form>
-</section>
-<section id="container">
-  <div id="child1" class="child"></div>
-  <div id="child2" class="child"></div>
-  <div id="child3" class="child"></div>
 </section>
