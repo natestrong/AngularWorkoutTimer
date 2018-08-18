@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./workout.component.css']
 })
 export class WorkoutComponent implements OnInit {
+  ongoingWorkout = false;
 
   constructor() { }
 

@@ -1,3 +1,13 @@
-<p>
-  workout works!
-</p>
+<mat-tab-group *ngIf="!ongoingWorkout">
+  <mat-tab label="New Workout">
+    <app-new-workout (workoutStart)="ongoingWorkout = true">
+
+    </app-new-workout>
+  </mat-tab>
+  <mat-tab label="Past Workouts">
+    <app-past-workouts>
+
+    </app-past-workouts>
+  </mat-tab>
+</mat-tab-group>
+<app-current-workout *ngIf="ongoingWorkout"></app-current-workout>
