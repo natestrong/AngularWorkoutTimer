@@ -1,26 +1,11 @@
 <section class="new-workout" fxLayout fxLayoutAlign="center">
-  <mat-card fxFlex.xs="100%" fxFlex="400px">
+  <mat-card fxFlex="400px">
     <mat-card-title fxLayoutAlign="center">
-      Time to start a workout!
+      {{workoutMessage}}
     </mat-card-title>
-    <mat-card-content fxLayoutAlign="center">
-      <mat-form-field>
-        <mat-select placeholder="Favorite food">
-          <mat-option value="crunches">
-            Crunches
-          </mat-option>
-          <mat-option value="pushUps">
-            Push Ups
-          </mat-option>
-          <mat-option value="sideLunges">
-            Side Lunges
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions fxLayoutAlign="center">
-      <button mat-raised-button color="accent" type="submit" (click)="onStartWorkout()">Start</button>
-    </mat-card-actions>
   </mat-card>
 </section>
 
+<section class="workout-list" fxLayout fxLayoutAlign="center">
+<app-workout-list (workoutChosen)="onStartWorkout($event)"></app-workout-list>
+</section>

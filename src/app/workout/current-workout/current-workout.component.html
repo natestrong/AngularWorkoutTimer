@@ -1,6 +1,15 @@
 <section class="currentWorkout" fxLayout="column" fxLayoutAlign="center center">
+
+  <section class="new-workout" fxLayout fxLayoutAlign="center">
+    <mat-card fxFlex="400px">
+      <mat-card-title fxLayoutAlign="center">
+        {{currentExerciseMessage}}
+      </mat-card-title>
+    </mat-card>
+  </section>
+
   <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
-  <h1>{{ progress }}</h1>
+  <h1>{{ progress }}%</h1>
   <p>Keep going!</p>
-  <button mat-raised-button color="accent">STOP</button>
+  <button mat-raised-button color="accent" (click)="onStop()">STOP</button>
 </section>

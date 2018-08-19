@@ -1,0 +1,26 @@
+<section class="workout-list" fxLayout>
+  <mat-accordion fxLayout="column" fxFlex="400px">
+    <mat-expansion-panel *ngFor="let workout of workoutList"
+                         (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{workout.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ workout.description }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-list>
+        <mat-list-item *ngFor="let exercise of workout.exerciseList">
+          {{ exercise.name }}: {{ exercise.timeLength}}s.
+        </mat-list-item>
+      </mat-list>
+
+      <mat-action-row fxLayoutAlign="center">
+        <button mat-raised-button color="accent" type="submit" (click)="onWorkoutChosen(workout)">Start</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

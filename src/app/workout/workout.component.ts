@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Workout} from './workout.model';
 
 @Component({
   selector: 'app-workout',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkoutComponent implements OnInit {
   ongoingWorkout = false;
+  currentWorkout: Workout;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  setOngoingWorkout(workout: Workout) {
+    this.ongoingWorkout = true;
+    this.currentWorkout = workout;
+  }
 }
