@@ -1,15 +1,47 @@
 <section class="currentWorkout" fxLayout="column" fxLayoutAlign="center center">
 
-  <section class="new-workout" fxLayout fxLayoutAlign="center">
-    <mat-card fxFlex="400px">
+  <mat-progress-bar mode="determinate" [value]="progressRemaining">
+
+  </mat-progress-bar>
+
+  <section class="new-workout" fxLayout fxLayoutAlign="center none">
+    <mat-card fxFlex="370px">
       <mat-card-title fxLayoutAlign="center">
         {{currentExerciseMessage}}
       </mat-card-title>
     </mat-card>
   </section>
 
-  <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
-  <h1>{{ progress }}%</h1>
-  <p>Keep going!</p>
-  <button mat-raised-button color="accent" (click)="onStop()">STOP</button>
+
+  <mat-progress-spinner [diameter]="spinnerDiameter"
+                        mode="determinate"
+                        [value]="spinnerValue">
+
+  </mat-progress-spinner>
+  <h1>{{ currentExerciseTimeRemaining }}</h1>
+  <button mat-raised-button color="accent" (click)="onStop()">PAUSE</button>
+
+  <p *ngIf="remainingExerciseList.length > 0"><b>
+    up next:
+  </b></p>
+
+  <section class="nextExerciseCard"
+           fxLayout="column"
+           fxLayoutAlign="center">
+    <mat-card *ngFor="let exercise of remainingExerciseList"
+              fxLayout="column"
+              fxLayoutAlign="space-around stretch">
+      <mat-card-title>
+        {{exercise.name}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{exercise.timeLength}} seconds
+      </mat-card-subtitle>
+    </mat-card>
+  </section>
+
+  <h1 *ngIf="remainingExerciseList.length === 0">
+    FINISH STRONG!
+  </h1>
+
 </section>

@@ -8,7 +8,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule,
-  MatNativeDateModule, MatOptionModule, MatProgressSpinnerModule, MatSelectModule,
+  MatNativeDateModule, MatOptionModule, MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule,
   MatSidenavModule, MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
@@ -30,6 +30,7 @@ import {
     MatSelectModule,
     MatOptionModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatDialogModule,
     MatExpansionModule
   ],
@@ -49,6 +50,7 @@ import {
     MatSelectModule,
     MatOptionModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatDialogModule,
     MatExpansionModule
   ]

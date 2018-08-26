@@ -23,9 +23,9 @@ export class WorkoutListComponent implements OnInit {
 
   buildWorkoutList() {
     const newWorkout = new Workout('Ab Blaster!', 'Instant 6 pack');
-    const exercise1 = new Exercise('Push-ups', 'Do Push-ups', 30);
-    const exercise2 = new Exercise('Sit-ups', 'Do Sit-ups', 60);
-    const exercise3 = new Exercise('Planks', 'Do planks', 30);
+    const exercise1 = new Exercise('Push-ups', 'Do Push-ups', 5);
+    const exercise2 = new Exercise('Sit-ups', 'Do Sit-ups', 10);
+    const exercise3 = new Exercise('Planks', 'Do planks', 5);
     newWorkout.setExcerciseList([exercise1, exercise2, exercise3]);
     this.workoutList.push(newWorkout);
 
